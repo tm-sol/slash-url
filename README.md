@@ -33,7 +33,7 @@ python app.py
 
     e.g. http://127.0.0.1:5000/shorten_url
     {
-	    "url":"www.google.com"
+	    "url":"https://www.google.com/search?q=google&client=firefox-b&source=lnms&tbm=isch&sa=X&ved=0ahUKEwifxaaV1c7cAhXI_qQKHUmeAKoQ_AUIDSgE&biw=1360&bih=607#imgrc=UEiT48pdXPdUAM:"
     }
 
     returned:
