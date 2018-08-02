@@ -10,3 +10,9 @@ Validation has been taken to mean leads to a live resource.  Many formats are va
 ```
 python -m unittest discover -s tests
 ```
+
+
+## Base62 Encoding
+Base62 used to generate part of the url string and sourced from:
+https://stackoverflow.com/questions/1119722/base-62-conversion
+
