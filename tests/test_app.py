@@ -21,5 +21,5 @@ class TestApp(unittest.TestCase):
 
     def test_redirect(self):
         self.app = webapp.test_client()
-        response = self.app.get('/shorten_url/www.google.com')
+        response = self.app.get('/www.google.com')
         self.assertEqual(response._status_code, 302, "check identified as valid url and forwarded")

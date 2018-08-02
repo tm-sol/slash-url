@@ -44,7 +44,7 @@ def decode(string, alphabet=BASE62):
 
 def convert(url):
     if not (url.startswith('http://') or url.startswith('https://') or url.startswith('ftp://')):
-        return 'http://' + url
+        return 'http://{}'.format(url)
     return url
 
 
