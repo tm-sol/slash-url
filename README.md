@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/tm-sol/slash-url.svg?branch=master)](https://travis-ci.com/tm-sol/slash-url)
 
 # slash-url
-Example URL shortening API in Flask and MongoDB.
+Example URL shortening API in Flask and MongoDB using a hash to reduce size of the new url.
 
 # Pre-requisites:
  - Python 3.x
@@ -10,10 +10,9 @@ Example URL shortening API in Flask and MongoDB.
  - internet connection
 
 # Running
-1. Ensure Mongo DB
-Prior to running tests or running code a MongoDB instance should be started on your machine.  For example instantiate on windows:
+1. Ensure Mongo DB prior to running tests or running code, a MongoDB instance should be started on your machine.  For example, instantiate on windows by:
 ```
-"D:\Program Files\MongoDB\Server\3.6\bin\mongod.exe" --dbpath d:\test\mongodb\data
+"<PATH>\Server\3.6\bin\mongod.exe" --dbpath <PATH>\data
 ```
 
 2. Run Python Application
@@ -39,7 +38,10 @@ python app.py
     returned:
         (if valid) <APP URL>/<CODE> as url
         (if invalid) Error 400 and Error MSG
+```
 
+
+```
     GET: <APP URL>/<CODE>
      returned:
         (if valid) 301 and redirect
@@ -55,13 +57,13 @@ python -m unittest discover -s tests
 # Discussion
 
 ## Scaling Application
-Current implementation would scale well as MongoDB copes well with large numbers of requests.  However the 'url shortening' can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter and just as quick.
+Current implementation would scale very well as MongoDB can be sharded using this technique and it can cope well with large numbers of requests.
 
 ## URL Validation
-Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so makes this test may need more context.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used.
+Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so maybe this test may need more context.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used.
 
-# Acknowledgements
-## Base62 Encoding
-Base62 used to generate part of the url string and sourced from:
-https://stackoverflow.com/questions/1119722/base-62-conversion
+## Improvements
+
+- *url shortening* can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter.
+- Current version does not check for duplicates in the DB.  Checking to see if url was previously encoded would save.  Example of how to code in Base62 here: https://stackoverflow.com/questions/1119722/base-62-conversion
 
