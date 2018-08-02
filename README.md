@@ -1,5 +1,5 @@
 # slash-url
-Example URL shortening API.
+Example URL shortening API in Flask and MongoDB.
 
 # Pre-requisites:
  - Python 3.x
@@ -44,19 +44,17 @@ python app.py
         (if invalid) Error 400 and Error MSG
 ```
 
-
-# Discussion
-
-## URL Validation
-Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so makes this test need more definition.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used but there are a lot of edge cases.
-
 ## Running tests
 
 ```
 python -m unittest discover -s tests
 ```
 
+# Discussion
+## URL Validation
+Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so makes this test may need more context.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used.
 
+# Acknowledgements
 ## Base62 Encoding
 Base62 used to generate part of the url string and sourced from:
 https://stackoverflow.com/questions/1119722/base-62-conversion
