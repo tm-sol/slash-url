@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/tm-sol/slash-url.svg?branch=master)](https://travis-ci.com/tm-sol/slash-url)
 
 # slash-url
-Example URL shortening API in Flask and MongoDB using a hash to reduce size of new url.
+Example URL shortening API in Flask and MongoDB using a hash to reduce size of the new url.
 
 # Pre-requisites:
  - Python 3.x
@@ -10,8 +10,7 @@ Example URL shortening API in Flask and MongoDB using a hash to reduce size of n
  - internet connection
 
 # Running
-1. Ensure Mongo DB
-Prior to running tests or running code a MongoDB instance should be started on your machine.  For example instantiate on windows:
+1. Ensure Mongo DB prior to running tests or running code, a MongoDB instance should be started on your machine.  For example, instantiate on windows by:
 ```
 "<PATH>\Server\3.6\bin\mongod.exe" --dbpath <PATH>\data
 ```
@@ -66,5 +65,5 @@ Validation has been taken to mean leads to a live resource.  A live internet con
 ## Improvements
 
 - *url shortening* can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter.
-- Current version does not check for duplicates in the DB.  Checking to see if url was previously encoded would save.
+- Current version does not check for duplicates in the DB.  Checking to see if url was previously encoded would save.  Example of how to code in Base62 here: https://stackoverflow.com/questions/1119722/base-62-conversion
 
