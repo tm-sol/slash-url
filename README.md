@@ -55,7 +55,7 @@ python -m unittest discover -s tests
 # Discussion
 
 ## Scaling Application
-The current version would scale well as MongoDB copes well with large numbers of requests.
+Current implementation would scale well as MongoDB copes well with large numbers of requests.  However the 'url shortening' can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter and just as quick.
 
 ## URL Validation
 Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so makes this test may need more context.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used.
