@@ -22,11 +22,8 @@ class TestUtils(unittest.TestCase):
         for url in self.invalid_urls:
                 self.assertFalse(utils.check_url(url), "check invalid urls caught")
 
-    def test_encode_base62(self):
-        result = utils.encode(100)
-        self.assertEqual(result, "1C", "Check encodes as expected")
+    def test_encode(self):
+        self.assertEqual(utils.encode('5b6320ebb144f82380a24e94'), 'QlOj4GDp22uW8NY0zxgE', "Check encodes as expected")
 
-    def test_decode_base62(self):
-        result = utils.decode("1C")
-        self.assertEqual(result, 100, "Check decodes as expected")
-
+    def test_decode(self):
+        self.assertEqual(utils.decode('QlOj4GDp22uW8NY0zxgE'), '5b6320ebb144f82380a24e94', "Check decodes as expected")
