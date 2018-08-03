@@ -57,13 +57,13 @@ python -m unittest discover -s tests
 # Discussion
 
 ## Scaling Application
-Current implementation would scale very well as MongoDB can be sharded using this technique and it can cope well with large numbers of requests.
+Current architecture would scale very well as MongoDB can be sharded using this technique and it can cope well with large numbers of requests.  Flask can also use a cache to speed up requests.  Various different load balancing techniques and optimising techniques also exist such as asynchronous modules like https://gitlab.com/pgjones/quart but these depend on infrastructure setup.  Setting up *stress tests* to identify bottlenecks on deployment would be useful as part of bigger integration tests.
 
 ## URL Validation
 Validation has been taken to mean leads to a live resource.  A live internet connection is needed.  Many formats are valid urls as the official standard is quite forgiving so maybe this test may need more context.  An option to allow users to force a url to be shorted even if not live or valid could be a good compromise here.  If basic formatting checking needed a regex could be used.
 
 ## Improvements
 
-- *url shortening* can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter.
-- Current version does not check for duplicates in the DB.  Checking to see if url was previously encoded would save.  Example of how to code in Base62 here: https://stackoverflow.com/questions/1119722/base-62-conversion
+- *url shortening* can be much improved using a standard RDBS instead of Mongo.  The ID int could then be used to create the Base62 code which would be much shorter. Example of how to code in Base62 here: https://stackoverflow.com/questions/1119722/base-62-conversion.
+- Current version does not check for duplicates in the DB.  Checking to see if url was previously encoded would save space.
 
